@@ -113,7 +113,7 @@
     justify-content: center;
     margin-top: 4px;
   }
-  .map-svg { width: 100%; max-width: 300px; height: auto; }
+  .map-svg { width: 100%; max-width: 380px; height: auto; }
   .map-island { fill: var(--teal-soft); stroke: var(--line-strong); stroke-width: 1.5; }
   .map-leader { stroke: var(--line-strong); stroke-width: 1; fill: none; }
   .map-dot { stroke: var(--card); stroke-width: 1.5; }
@@ -522,42 +522,37 @@
   <div class="map-card">
     <p class="route-title">沖縄本島での位置関係</p>
     <div class="map-svg-wrap">
-      <svg class="map-svg" viewBox="0 0 300 460" xmlns="http://www.w3.org/2000/svg">
-        <path class="map-island" d="M90,440 C150,450 175,430 165,400 C158,375 145,355 135,330 C128,310 132,295 122,270 C115,250 120,235 112,210 C106,190 110,175 104,155 C100,140 108,125 100,110 C94,98 100,85 92,72 C86,62 95,50 85,40 C78,33 65,35 60,45 C54,55 62,65 56,78 C50,92 58,105 52,120 C47,135 54,150 48,168 C43,185 50,200 45,220 C40,240 47,258 42,280 C37,302 44,322 40,345 C35,368 42,388 38,405 C35,420 45,435 60,438 C70,441 80,438 90,440 Z"/>
+      <svg class="map-svg" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+        <path class="map-island" d="M326.0,102.5 L325.1,87.4 L338.1,86.1 L362.6,60.0 L372.0,37.8 L370.4,21.8 L378.6,20.0 L391.0,36.5 L397.3,34.6 L407.8,83.1 L382.8,127.0 L364.3,148.5 L323.8,148.9 L324.5,165.6 L311.5,163.0 L324.3,181.4 L318.4,189.4 L297.8,199.4 L268.4,189.4 L277.8,206.8 L251.4,212.6 L253.7,225.4 L229.5,232.2 L228.4,250.6 L190.8,240.3 L172.5,253.9 L177.1,267.7 L194.6,281.8 L198.6,301.2 L213.9,308.0 L215.3,326.0 L189.0,300.2 L176.2,306.8 L180.3,315.0 L162.8,324.8 L165.9,335.5 L157.9,340.4 L152.2,362.5 L144.0,375.9 L137.4,373.9 L147.0,391.4 L168.0,381.1 L172.6,393.4 L122.3,434.3 L90.9,440.0 L95.3,412.1 L85.5,406.1 L95.5,402.4 L85.4,402.4 L89.1,391.2 L81.6,389.2 L80.0,377.8 L87.2,367.5 L97.7,373.0 L92.4,368.4 L102.4,363.5 L95.3,352.4 L103.0,354.2 L114.0,337.8 L129.7,333.7 L138.6,319.0 L115.8,249.0 L127.5,259.0 L143.7,246.6 L156.7,251.3 L179.2,227.8 L178.5,215.7 L214.1,208.4 L220.2,195.2 L235.2,195.9 L244.0,179.0 L243.1,170.8 L227.0,163.6 L202.8,161.4 L195.0,143.0 L202.4,132.9 L192.6,118.3 L195.4,106.8 L230.6,107.4 L254.2,117.7 L244.4,138.5 L264.3,150.3 L305.3,128.5 L313.0,133.9 L300.7,123.0 Z"/>
 
         <!-- 万座 → 美ら海 の日帰りスパー -->
-        <path class="map-spur" d="M53,266 C60,220 62,190 66,160"/>
-        <text class="map-spur-note" x="70" y="205" text-anchor="start">車で約60分</text>
+        <path class="map-spur" d="M181,213 C185,180 190,150 195,118"/>
+        <text class="map-spur-note" x="199" y="170" text-anchor="start">車で約60分</text>
 
         <!-- 那覇空港 -->
-        <circle class="map-dot stop" cx="75" cy="434" r="4.5"/>
-        <path class="map-leader" d="M75,434 L182,442"/>
-        <text class="map-label stop" x="186" y="446">那覇空港</text>
+        <circle class="map-dot stop" cx="85" cy="379" r="5"/>
+        <text class="map-label stop" x="95" y="397">那覇空港</text>
 
         <!-- 国際通り(参考) -->
-        <circle class="map-dot ref" cx="93" cy="428" r="3.5"/>
-        <path class="map-leader" d="M93,428 L182,414"/>
-        <text class="map-label ref" x="186" y="418">国際通り</text>
+        <circle class="map-dot ref" cx="102" cy="369" r="4"/>
+        <path class="map-leader" d="M102,369 L118,349"/>
+        <text class="map-label ref" x="121" y="352">国際通り</text>
 
         <!-- 残波岬・グランドメルキュール -->
-        <circle class="map-dot stop" cx="45" cy="303" r="4.5"/>
-        <path class="map-leader" d="M45,303 L182,303"/>
-        <text class="map-label stop" x="186" y="307">残波岬</text>
+        <circle class="map-dot stop" cx="119" cy="215" r="5"/>
+        <text class="map-label stop" x="109" y="219" text-anchor="end">残波岬</text>
 
         <!-- 万座 -->
-        <circle class="map-dot stop" cx="51" cy="266" r="4.5"/>
-        <path class="map-leader" d="M51,266 L182,266"/>
-        <text class="map-label stop" x="186" y="270">万座</text>
+        <circle class="map-dot stop" cx="180" cy="216" r="5"/>
+        <text class="map-label stop" x="190" y="220">万座</text>
 
         <!-- 美ら海水族館 -->
-        <circle class="map-dot stop" cx="66" cy="157" r="4.5"/>
-        <path class="map-leader" d="M66,157 L182,172"/>
-        <text class="map-label stop" x="186" y="176">美ら海水族館</text>
+        <circle class="map-dot stop" cx="195" cy="114" r="5"/>
+        <text class="map-label stop" x="185" y="105" text-anchor="end">美ら海水族館</text>
 
         <!-- 古宇利島(参考) -->
-        <circle class="map-dot ref" cx="98" cy="148" r="3.5"/>
-        <path class="map-leader" d="M98,148 L182,140"/>
-        <text class="map-label ref" x="186" y="144">古宇利島</text>
+        <circle class="map-dot ref" cx="263" cy="115" r="4"/>
+        <text class="map-label ref" x="273" y="119">古宇利島</text>
       </svg>
     </div>
     <div class="map-legend">
