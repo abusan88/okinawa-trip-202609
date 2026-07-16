@@ -100,6 +100,64 @@
     font-weight: 700;
   }
 
+  /* ---------- Date options ---------- */
+  .dates-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 18px 18px;
+    margin-bottom: 28px;
+  }
+  .date-options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .date-option {
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: 13px 14px;
+  }
+  .date-option-range {
+    font-family: "Iowan Old Style", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .date-option-price {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  .date-option ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .date-option li {
+    font-size: 13px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .date-option li.pro { color: var(--ink); }
+  .date-option li.con { color: var(--ink); }
+  .date-option li.pro::before {
+    content: "◎";
+    position: absolute; left: 0; top: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .date-option li.con::before {
+    content: "△";
+    position: absolute; left: 0; top: 0;
+    color: var(--coral);
+    font-weight: 700;
+  }
+
   /* ---------- Island map ---------- */
   .map-card {
     background: var(--card);
@@ -532,6 +590,31 @@
   <div class="concept">
     <p><span class="when">1〜2日目</span> — 万座を拠点に、観光とホテル遊びで遊び倒す。美ら海水族館はもちろん、行きたい所があれば他に寄ってもOKな自由枠</p>
     <p><span class="when">3日目</span> — 最後に泊まるインクルーシブホテルで、がっつりゆっくり過ごす想定</p>
+  </div>
+
+  <div class="dates-card">
+    <p class="route-title">候補日程(どちらも参加OK)</p>
+    <div class="date-options">
+      <div class="date-option">
+        <p class="date-option-range">9/24(木) 〜 27(日)【現在の本命】</p>
+        <p class="date-option-price">万座2部屋・2泊 目安 ¥241,000〜</p>
+        <ul>
+          <li class="pro">海水温 約28℃。ガッツリ泳げる、プール・ビーチが一番映える時期</li>
+          <li class="con">台風の接近数は平年1.9個・やや多め(直前の進路次第)</li>
+          <li class="con">宿泊費は10月案より4〜5万円ほど高い</li>
+        </ul>
+      </div>
+      <div class="date-option">
+        <p class="date-option-range">10/22(木) 〜 25(日)【代替案】</p>
+        <p class="date-option-price">万座2部屋・2泊 目安 ¥200,000〜(9月案より約4万円安い)</p>
+        <ul>
+          <li class="pro">天候が安定しやすい。台風の接近数は平年1.0個で少なめ</li>
+          <li class="pro">宿泊費が安い(万座の空室が9月より多い時期)</li>
+          <li class="con">海水温 約26℃。晴れて日中なら泳げるが、風のある日は肌寒いことも</li>
+        </ul>
+      </div>
+    </div>
+    <p class="route-note">価格差は主に万座の空室状況によるもの(添い寝が通れば両日程とも下がる余地あり)。台風はどちらの時期も「来る時は来る」ため、決定打にはしない方針。</p>
   </div>
 
   <div class="map-card">
