@@ -182,7 +182,7 @@
   .map-dot.food { fill: var(--ink-soft); }
   .map-label {
     font-family: -apple-system, "Hiragino Sans", "Yu Gothic Medium", sans-serif;
-    font-size: 10.5px;
+    font-size: 12.5px;
     fill: var(--ink);
   }
   .map-label.hotel { font-weight: 700; fill: var(--coral); }
@@ -190,7 +190,7 @@
   .map-label.sight { fill: var(--teal); }
   .map-label.food { fill: var(--ink-soft); }
   .map-spur { stroke: var(--coral); stroke-width: 1.4; stroke-dasharray: 3 3; fill: none; }
-  .map-spur-note { font-size: 9.5px; fill: var(--ink-soft); }
+  .map-spur-note { font-size: 11px; fill: var(--ink-soft); }
   .map-legend {
     display: flex;
     flex-wrap: wrap;
@@ -227,6 +227,8 @@
     display: flex;
     align-items: flex-start;
     gap: 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
   }
   .route-node {
     flex: 0 0 auto;
@@ -258,7 +260,8 @@
     margin-top: 2px;
   }
   .route-seg {
-    flex: 1 1 auto;
+    flex: 1 1 0;
+    min-width: 0;
     padding-top: 4px;
     position: relative;
   }
@@ -565,8 +568,15 @@
     padding-top: 16px;
   }
 
-  @media (max-width: 380px) {
-    .route-node { width: 70px; }
+  @media (max-width: 420px) {
+    .page { padding: 22px 14px 50px; }
+    .map-card, .route, .dates-card { padding: 16px 12px 14px; }
+    .route-node { width: 62px; }
+    .route-node .label { font-size: 11.5px; }
+    .route-seg .meta { font-size: 10.5px; }
+    .map-svg { max-width: none; }
+    .food-item-head { flex-wrap: wrap; }
+    .food-time { margin-left: 0; width: 100%; }
   }
 
   @media print {
@@ -635,7 +645,7 @@
         <circle class="map-dot sight" cx="103" cy="368" r="4.5"/>
         <path class="map-leader" d="M103,368 L120,347"/>
         <text class="map-label sight" x="123" y="350">那覇市街</text>
-        <text class="map-label sight" x="123" y="362" style="font-size:8.5px">(国際通り・首里城)</text>
+        <text class="map-label sight" x="123" y="362" style="font-size:10.5px">(国際通り・首里城)</text>
 
         <!-- 平和祈念公園 -->
         <circle class="map-dot sight" cx="118" cy="433" r="4.5"/>
@@ -648,7 +658,7 @@
         <!-- 万座(ホテル)・万座毛はホテルの目の前 -->
         <circle class="map-dot hotel" cx="180" cy="216" r="5.5"/>
         <text class="map-label hotel" x="190" y="220">万座(宿泊)</text>
-        <text class="map-label sight" x="190" y="232" style="font-size:8.5px">万座毛は徒歩圏</text>
+        <text class="map-label sight" x="190" y="232" style="font-size:10.5px">万座毛は徒歩圏</text>
 
         <!-- 青の洞窟(真栄田岬) -->
         <circle class="map-dot sight" cx="173" cy="223" r="4.5"/>
@@ -660,8 +670,8 @@
 
         <!-- アメリカンビレッジ(北谷) -->
         <circle class="map-dot sight" cx="138" cy="315" r="4.5"/>
-        <path class="map-leader" d="M138,315 L100,322"/>
-        <text class="map-label sight" x="97" y="326" text-anchor="end">アメリカンビレッジ</text>
+        <path class="map-leader" d="M138,315 L88,312"/>
+        <text class="map-label sight" x="85" y="308" text-anchor="end">アメリカン<tspan x="85" dy="13">ビレッジ</tspan></text>
 
         <!-- 瀬長島ウミカジテラス -->
         <circle class="map-dot sight" cx="85" cy="388" r="4.5"/>
@@ -711,8 +721,8 @@
 
         <!-- ダイヤモンドビーチカフェ -->
         <circle class="map-dot food" cx="338.3" cy="75.9" r="4"/>
-        <path class="map-leader" d="M338.3,75.9 L368,150"/>
-        <text class="map-label food" x="370" y="150">ダイヤモンド<tspan x="370" dy="11">ビーチカフェ</tspan></text>
+        <path class="map-leader" d="M338.3,75.9 L330,168"/>
+        <text class="map-label food" x="330" y="182" text-anchor="middle">ダイヤモンド<tspan x="330" dy="13">ビーチカフェ</tspan></text>
 
         <!-- ととちゃんぷる -->
         <circle class="map-dot food" cx="279.2" cy="106.6" r="4"/>
@@ -755,7 +765,7 @@
         <div class="line"></div>
         <div class="meta">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          車 約55分
+          約55分
         </div>
       </div>
       <div class="route-node stop">
@@ -767,7 +777,7 @@
         <div class="line"></div>
         <div class="meta">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          車 約30分
+          約30分
         </div>
       </div>
       <div class="route-node stop">
@@ -775,20 +785,8 @@
         <div class="label">メルキュール</div>
         <div class="sub">1泊</div>
       </div>
-      <div class="route-seg">
-        <div class="line"></div>
-        <div class="meta">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          車 約70分
-        </div>
-      </div>
-      <div class="route-node">
-        <span class="dot"></span>
-        <div class="label">那覇空港</div>
-        <div class="sub">帰路</div>
-      </div>
     </div>
-    <p class="route-note">万座↔メルキュールは恩納村と読谷村、隣り合ったエリアなので短時間で移動できる想定。所要時間はいずれも目安。</p>
+    <p class="route-note">最終日はメルキュール → 那覇空港が車で約70分。万座↔メルキュールは恩納村と読谷村で隣り合ったエリア。所要時間はいずれも目安。</p>
   </div>
 
   <div class="days">
