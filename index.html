@@ -278,6 +278,28 @@
     color: var(--ink-soft);
     margin-bottom: 12px;
   }
+  .hotel-budget {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    background: var(--teal-soft);
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin-bottom: 12px;
+  }
+  .hotel-card.mercure .hotel-budget { background: #c96a4914; }
+  .hotel-budget .amount {
+    font-family: "Iowan Old Style", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--teal);
+    font-variant-numeric: tabular-nums;
+  }
+  .hotel-card.mercure .hotel-budget .amount { color: var(--coral); }
+  .hotel-budget .note {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+  }
   .hotel-facts {
     list-style: none;
     margin: 0 0 14px;
@@ -485,6 +507,10 @@
           <span class="hotel-nights">2泊・9/24-26</span>
         </div>
         <p class="hotel-loc">ANAインターコンチネンタル万座ビーチリゾート by IHG ／ 恩納村</p>
+        <div class="hotel-budget">
+          <span class="amount">¥90,000〜</span>
+          <span class="note">1部屋・2泊の目安(素泊まり)</span>
+        </div>
         <ul class="hotel-facts">
           <li>全室オーシャンビュー、目の前にタイガービーチ</li>
           <li>宿泊者無料のプールエリア「サンセットガーデン」— 波プール・キッズスライダー・バブルヒル</li>
@@ -506,6 +532,10 @@
           <span class="hotel-nights">1泊・9/26-27</span>
         </div>
         <p class="hotel-loc">グランドメルキュール沖縄残波岬リゾート ／ 読谷村・残波岬</p>
+        <div class="hotel-budget">
+          <span class="amount">¥60,000〜</span>
+          <span class="note">1部屋・1泊の目安(オールインクルーシブ)</span>
+        </div>
         <ul class="hotel-facts">
           <li>オールインクルーシブ(夕食・朝食ビュッフェ込み)</li>
           <li>県内最大級のオールデイプール — キッズプール・ウォータースライダー・大人専用プール</li>
@@ -519,7 +549,7 @@
   </div>
 
   <footer class="foot">
-    移動時間は目安。実際の道路状況・出発時刻で前後します。
+    金額は大人2名+小学生1名の1部屋あたり目安。人数構成が違う部屋は金額が変わります。移動時間も目安で、実際の道路状況・出発時刻で前後します。
   </footer>
 
 </div>
