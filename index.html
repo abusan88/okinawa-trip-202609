@@ -100,6 +100,48 @@
     font-weight: 700;
   }
 
+  /* ---------- Island map ---------- */
+  .map-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 18px 18px;
+    margin-bottom: 32px;
+  }
+  .map-svg-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+  }
+  .map-svg { width: 100%; max-width: 300px; height: auto; }
+  .map-island { fill: var(--teal-soft); stroke: var(--line-strong); stroke-width: 1.5; }
+  .map-leader { stroke: var(--line-strong); stroke-width: 1; fill: none; }
+  .map-dot { stroke: var(--card); stroke-width: 1.5; }
+  .map-dot.stop { fill: var(--coral); r: 4.5; }
+  .map-dot.ref { fill: var(--ink-soft); r: 3.5; }
+  .map-label {
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic Medium", sans-serif;
+    font-size: 10.5px;
+    fill: var(--ink);
+  }
+  .map-label.stop { font-weight: 700; }
+  .map-label.ref { fill: var(--ink-soft); }
+  .map-spur { stroke: var(--coral); stroke-width: 1.4; stroke-dasharray: 3 3; fill: none; }
+  .map-spur-note { font-size: 9.5px; fill: var(--ink-soft); }
+  .map-legend {
+    display: flex;
+    gap: 18px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  .map-legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .map-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .map-legend i.stop { background: var(--coral); }
+  .map-legend i.ref { background: var(--ink-soft); }
+
   /* ---------- Route strip ---------- */
   .route {
     background: var(--card);
@@ -475,6 +517,53 @@
   <div class="concept">
     <p><span class="when">1〜2日目</span> — 万座を拠点に、観光とホテル遊びで遊び倒す。美ら海水族館はもちろん、行きたい所があれば他に寄ってもOKな自由枠</p>
     <p><span class="when">3日目</span> — 最後に泊まるインクルーシブホテルで、がっつりゆっくり過ごす想定</p>
+  </div>
+
+  <div class="map-card">
+    <p class="route-title">沖縄本島での位置関係</p>
+    <div class="map-svg-wrap">
+      <svg class="map-svg" viewBox="0 0 300 460" xmlns="http://www.w3.org/2000/svg">
+        <path class="map-island" d="M90,440 C150,450 175,430 165,400 C158,375 145,355 135,330 C128,310 132,295 122,270 C115,250 120,235 112,210 C106,190 110,175 104,155 C100,140 108,125 100,110 C94,98 100,85 92,72 C86,62 95,50 85,40 C78,33 65,35 60,45 C54,55 62,65 56,78 C50,92 58,105 52,120 C47,135 54,150 48,168 C43,185 50,200 45,220 C40,240 47,258 42,280 C37,302 44,322 40,345 C35,368 42,388 38,405 C35,420 45,435 60,438 C70,441 80,438 90,440 Z"/>
+
+        <!-- 万座 → 美ら海 の日帰りスパー -->
+        <path class="map-spur" d="M53,266 C60,220 62,190 66,160"/>
+        <text class="map-spur-note" x="70" y="205" text-anchor="start">車で約60分</text>
+
+        <!-- 那覇空港 -->
+        <circle class="map-dot stop" cx="75" cy="434" r="4.5"/>
+        <path class="map-leader" d="M75,434 L182,442"/>
+        <text class="map-label stop" x="186" y="446">那覇空港</text>
+
+        <!-- 国際通り(参考) -->
+        <circle class="map-dot ref" cx="93" cy="428" r="3.5"/>
+        <path class="map-leader" d="M93,428 L182,414"/>
+        <text class="map-label ref" x="186" y="418">国際通り</text>
+
+        <!-- 残波岬・グランドメルキュール -->
+        <circle class="map-dot stop" cx="45" cy="303" r="4.5"/>
+        <path class="map-leader" d="M45,303 L182,303"/>
+        <text class="map-label stop" x="186" y="307">残波岬</text>
+
+        <!-- 万座 -->
+        <circle class="map-dot stop" cx="51" cy="266" r="4.5"/>
+        <path class="map-leader" d="M51,266 L182,266"/>
+        <text class="map-label stop" x="186" y="270">万座</text>
+
+        <!-- 美ら海水族館 -->
+        <circle class="map-dot stop" cx="66" cy="157" r="4.5"/>
+        <path class="map-leader" d="M66,157 L182,172"/>
+        <text class="map-label stop" x="186" y="176">美ら海水族館</text>
+
+        <!-- 古宇利島(参考) -->
+        <circle class="map-dot ref" cx="98" cy="148" r="3.5"/>
+        <path class="map-leader" d="M98,148 L182,140"/>
+        <text class="map-label ref" x="186" y="144">古宇利島</text>
+      </svg>
+    </div>
+    <div class="map-legend">
+      <span><i class="stop"></i>今回のプラン</span>
+      <span><i class="ref"></i>近くの有名スポット(参考)</span>
+    </div>
   </div>
 
   <div class="route">
