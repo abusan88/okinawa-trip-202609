@@ -81,6 +81,25 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* ---------- Concept ---------- */
+  .concept {
+    margin-bottom: 28px;
+    padding-left: 15px;
+    border-left: 3px solid var(--teal);
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .concept p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .concept .when {
+    color: var(--teal);
+    font-weight: 700;
+  }
+
   /* ---------- Route strip ---------- */
   .route {
     background: var(--card);
@@ -452,6 +471,11 @@
     <h1>沖縄旅行 宿泊プラン</h1>
     <p class="trip-dates">2026年9月24日(木) 〜 27日(日)・3泊4日</p>
   </header>
+
+  <div class="concept">
+    <p><span class="when">1〜2日目</span> — 万座を拠点に、観光とホテル遊びで遊び倒す。美ら海水族館はもちろん、行きたい所があれば他に寄ってもOKな自由枠</p>
+    <p><span class="when">3日目</span> — 最後に泊まるインクルーシブホテルで、がっつりゆっくり過ごす想定</p>
+  </div>
 
   <div class="route">
     <p class="route-title">移動のイメージ</p>
