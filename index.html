@@ -280,20 +280,30 @@
   }
   .hotel-budget {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    flex-direction: column;
+    gap: 7px;
     background: var(--teal-soft);
     border-radius: 8px;
-    padding: 8px 11px;
+    padding: 10px 11px;
     margin-bottom: 12px;
   }
   .hotel-card.mercure .hotel-budget { background: #c96a4914; }
+  .hotel-budget .row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .hotel-budget .row + .row {
+    padding-top: 7px;
+    border-top: 1px dashed var(--line);
+  }
   .hotel-budget .amount {
     font-family: "Iowan Old Style", "Hiragino Mincho ProN", "Yu Mincho", serif;
     font-size: 17px;
     font-weight: 600;
     color: var(--teal);
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
   .hotel-card.mercure .hotel-budget .amount { color: var(--coral); }
   .hotel-budget .note {
@@ -508,8 +518,14 @@
         </div>
         <p class="hotel-loc">ANAインターコンチネンタル万座ビーチリゾート by IHG ／ 恩納村</p>
         <div class="hotel-budget">
-          <span class="amount">¥90,000〜</span>
-          <span class="note">1部屋・2泊の目安(素泊まり)</span>
+          <div class="row">
+            <span class="amount">¥90,000〜</span>
+            <span class="note">大人2名+小学生1名・1部屋2泊(素泊まり)</span>
+          </div>
+          <div class="row">
+            <span class="amount">¥40,000〜</span>
+            <span class="note">大人2名+子供添い寝の場合・1部屋2泊(要:ホテルへ添い寝可否の確認)</span>
+          </div>
         </div>
         <ul class="hotel-facts">
           <li>全室オーシャンビュー、目の前にタイガービーチ</li>
@@ -533,8 +549,14 @@
         </div>
         <p class="hotel-loc">グランドメルキュール沖縄残波岬リゾート ／ 読谷村・残波岬</p>
         <div class="hotel-budget">
-          <span class="amount">¥60,000〜</span>
-          <span class="note">1部屋・1泊の目安(オールインクルーシブ)</span>
+          <div class="row">
+            <span class="amount">¥60,000〜</span>
+            <span class="note">大人2名+小学生1名・1部屋1泊(オールインクルーシブ)</span>
+          </div>
+          <div class="row">
+            <span class="amount">¥40,000〜</span>
+            <span class="note">大人2名+子供添い寝の場合・1部屋1泊(要:ホテルへ添い寝可否の確認)</span>
+          </div>
         </div>
         <ul class="hotel-facts">
           <li>オールインクルーシブ(夕食・朝食ビュッフェ込み)</li>
