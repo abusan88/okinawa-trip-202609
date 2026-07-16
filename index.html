@@ -115,22 +115,28 @@
   }
   .map-svg { width: 100%; max-width: 380px; height: auto; }
   .map-island { fill: var(--teal-soft); stroke: var(--line-strong); stroke-width: 1.5; }
+  .map-coast { fill: none; stroke: var(--line-strong); stroke-width: 1.6; stroke-linejoin: round; }
   .map-leader { stroke: var(--line-strong); stroke-width: 1; fill: none; }
   .map-dot { stroke: var(--card); stroke-width: 1.5; }
-  .map-dot.stop { fill: var(--coral); r: 4.5; }
-  .map-dot.ref { fill: var(--ink-soft); r: 3.5; }
+  .map-dot.hotel { fill: var(--coral); }
+  .map-dot.airport { fill: var(--ink); }
+  .map-dot.sight { fill: none; stroke: var(--teal); stroke-width: 1.6; }
+  .map-dot.food { fill: var(--ink-soft); }
   .map-label {
     font-family: -apple-system, "Hiragino Sans", "Yu Gothic Medium", sans-serif;
     font-size: 10.5px;
     fill: var(--ink);
   }
-  .map-label.stop { font-weight: 700; }
-  .map-label.ref { fill: var(--ink-soft); }
+  .map-label.hotel { font-weight: 700; fill: var(--coral); }
+  .map-label.airport { font-weight: 700; }
+  .map-label.sight { fill: var(--teal); }
+  .map-label.food { fill: var(--ink-soft); }
   .map-spur { stroke: var(--coral); stroke-width: 1.4; stroke-dasharray: 3 3; fill: none; }
   .map-spur-note { font-size: 9.5px; fill: var(--ink-soft); }
   .map-legend {
     display: flex;
-    gap: 18px;
+    flex-wrap: wrap;
+    gap: 14px;
     margin-top: 14px;
     padding-top: 12px;
     border-top: 1px dashed var(--line);
@@ -138,9 +144,11 @@
     color: var(--ink-soft);
   }
   .map-legend span { display: inline-flex; align-items: center; gap: 5px; }
-  .map-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-  .map-legend i.stop { background: var(--coral); }
-  .map-legend i.ref { background: var(--ink-soft); }
+  .map-legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .map-legend i.hotel { background: var(--coral); }
+  .map-legend i.airport { background: var(--ink); }
+  .map-legend i.sight { background: transparent; border: 1.6px solid var(--teal); }
+  .map-legend i.food { background: var(--ink-soft); }
 
   /* ---------- Route strip ---------- */
   .route {
@@ -530,35 +538,96 @@
         <text class="map-spur-note" x="199" y="170" text-anchor="start">車で約60分</text>
 
         <!-- 那覇空港 -->
-        <circle class="map-dot stop" cx="85" cy="379" r="5"/>
-        <text class="map-label stop" x="95" y="397">那覇空港</text>
+        <circle class="map-dot airport" cx="85" cy="379" r="5"/>
+        <text class="map-label airport" x="95" y="397">那覇空港</text>
 
-        <!-- 国際通り(参考) -->
-        <circle class="map-dot ref" cx="102" cy="369" r="4"/>
-        <path class="map-leader" d="M102,369 L118,349"/>
-        <text class="map-label ref" x="121" y="352">国際通り</text>
+        <!-- 那覇市街(国際通り・首里城) -->
+        <circle class="map-dot sight" cx="103" cy="368" r="4.5"/>
+        <path class="map-leader" d="M103,368 L120,347"/>
+        <text class="map-label sight" x="123" y="350">那覇市街</text>
+        <text class="map-label sight" x="123" y="362" style="font-size:8.5px">(国際通り・首里城)</text>
 
-        <!-- 残波岬・グランドメルキュール -->
-        <circle class="map-dot stop" cx="119" cy="215" r="5"/>
-        <text class="map-label stop" x="109" y="219" text-anchor="end">残波岬</text>
+        <!-- 平和祈念公園 -->
+        <circle class="map-dot sight" cx="118" cy="433" r="4.5"/>
+        <text class="map-label sight" x="128" y="437">平和祈念公園</text>
 
-        <!-- 万座 -->
-        <circle class="map-dot stop" cx="180" cy="216" r="5"/>
-        <text class="map-label stop" x="190" y="220">万座</text>
+        <!-- 残波岬・グランドメルキュール(ホテル) -->
+        <circle class="map-dot hotel" cx="119" cy="215" r="5.5"/>
+        <text class="map-label hotel" x="109" y="219" text-anchor="end">残波岬(宿泊)</text>
+
+        <!-- 万座(ホテル) -->
+        <circle class="map-dot hotel" cx="180" cy="216" r="5.5"/>
+        <text class="map-label hotel" x="190" y="220">万座(宿泊)</text>
 
         <!-- 美ら海水族館 -->
-        <circle class="map-dot stop" cx="195" cy="114" r="5"/>
-        <text class="map-label stop" x="185" y="105" text-anchor="end">美ら海水族館</text>
+        <circle class="map-dot sight" cx="195" cy="114" r="4.5"/>
+        <text class="map-label sight" x="185" y="105" text-anchor="end">美ら海水族館</text>
 
-        <!-- 古宇利島(参考) -->
-        <circle class="map-dot ref" cx="263" cy="115" r="4"/>
-        <text class="map-label ref" x="273" y="119">古宇利島</text>
+        <!-- 古宇利島 -->
+        <circle class="map-dot sight" cx="263" cy="115" r="4.5"/>
+        <text class="map-label sight" x="273" y="119">古宇利島</text>
       </svg>
     </div>
     <div class="map-legend">
-      <span><i class="stop"></i>今回のプラン</span>
-      <span><i class="ref"></i>近くの有名スポット(参考)</span>
+      <span><i class="hotel"></i>宿泊ホテル</span>
+      <span><i class="airport"></i>空港</span>
+      <span><i class="sight"></i>観光名所</span>
     </div>
+  </div>
+
+  <div class="map-card">
+    <p class="route-title">万座周辺・ご飯やさんの位置関係</p>
+    <div class="map-svg-wrap">
+      <svg class="map-svg" viewBox="0 0 465 448" xmlns="http://www.w3.org/2000/svg">
+        <path class="map-coast" d="M363.5,280.2 L340.5,269.8 L276.2,298.1 L260.4,330.4 L239.3,355.0 L251.7,363.7 L240.8,389.2 L229.5,398.2 L196.0,378.0 L191.5,408.9 L181.3,405.5 L179.1,411.4 L35.3,357.3 L70.3,357.0 L92.1,324.2 L85.3,295.3 L97.4,281.0 L113.6,272.6 L114.3,262.3 L125.6,246.6 L132.4,251.3 L160.3,229.2 L187.7,217.7 L210.3,179.9 L223.9,182.1 L249.1,170.9 L248.7,148.2 L225.7,108.7 L243.1,75.0 L264.2,70.8 L274.3,75.0 L284.1,93.5 L295.7,89.3 L299.5,67.4 L293.5,58.8 L295.7,49.8 L310.4,70.3 L328.1,47.8 L334.5,48.4 L330.0,36.6 L334.9,37.7 L340.9,52.0 L350.3,41.4 L352.6,51.5 L370.7,61.3 L386.8,78.7"/>
+
+        <!-- ANA万座(ホテル) -->
+        <circle class="map-dot hotel" cx="307" cy="64.1" r="5.5"/>
+        <path class="map-leader" d="M307,64.1 L275,45"/>
+        <text class="map-label hotel" x="268" y="41" text-anchor="end">万座(宿泊)</text>
+
+        <!-- 万座テーブル -->
+        <circle class="map-dot food" cx="300.7" cy="71.7" r="4"/>
+        <path class="map-leader" d="M300.7,71.7 L292,135"/>
+        <text class="map-label food" x="290" y="139" text-anchor="end">万座テーブル</text>
+
+        <!-- パニラニ -->
+        <circle class="map-dot food" cx="346.9" cy="64.5" r="4"/>
+        <path class="map-leader" d="M346.9,64.5 L358,30"/>
+        <text class="map-label food" x="360" y="27">パニラニ</text>
+
+        <!-- ダイヤモンドビーチカフェ -->
+        <circle class="map-dot food" cx="338.3" cy="75.9" r="4"/>
+        <path class="map-leader" d="M338.3,75.9 L368,150"/>
+        <text class="map-label food" x="370" y="150">ダイヤモンド<tspan x="370" dy="11">ビーチカフェ</tspan></text>
+
+        <!-- ととちゃんぷる -->
+        <circle class="map-dot food" cx="279.2" cy="106.6" r="4"/>
+        <path class="map-leader" d="M279.2,106.6 L245,90"/>
+        <text class="map-label food" x="243" y="87" text-anchor="end">ととちゃんぷる</text>
+
+        <!-- 琉球亭 -->
+        <circle class="map-dot food" cx="151.6" cy="243.2" r="4"/>
+        <text class="map-label food" x="162" y="247">琉球亭</text>
+
+        <!-- ちぬまん万座邸 -->
+        <circle class="map-dot food" cx="117.4" cy="280.6" r="4"/>
+        <text class="map-label food" x="128" y="284">ちぬまん万座邸</text>
+
+        <!-- 土花土花 -->
+        <circle class="map-dot food" cx="110.6" cy="315.1" r="4"/>
+        <text class="map-label food" x="121" y="319">土花土花</text>
+
+        <!-- シーサイドドライブイン -->
+        <circle class="map-dot food" cx="95.5" cy="330.2" r="4"/>
+        <text class="map-label food" x="106" y="334">シーサイドドライブイン</text>
+      </svg>
+    </div>
+    <div class="map-legend">
+      <span><i class="hotel"></i>宿泊ホテル</span>
+      <span><i class="food"></i>ご飯やさん</span>
+    </div>
+    <p class="route-note" style="margin-top:12px;">海岸線は実際の座標データを間引いたもの。店の位置は住所ベースの目安で、番地までの厳密な精度はありません。</p>
   </div>
 
   <div class="route">
