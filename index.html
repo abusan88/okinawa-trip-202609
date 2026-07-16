@@ -1,0 +1,525 @@
+<title>沖縄旅行プラン 9/24-27</title>
+<style>
+  :root {
+    --paper: #efece1;
+    --card: #faf8ee;
+    --ink: #1d2b2c;
+    --ink-soft: #4b5a58;
+    --teal: #0c5b60;
+    --teal-soft: #0c5b6014;
+    --coral: #c96a49;
+    --line: #d3cdb6;
+    --line-strong: #b9b192;
+    --radius: 14px;
+    --route-r: 3px;
+  }
+  :root[data-theme="dark"] {
+    --paper: #101c1d;
+    --card: #16292b;
+    --ink: #eef1ec;
+    --ink-soft: #a9bab6;
+    --teal: #5bc7bd;
+    --teal-soft: #5bc7bd1a;
+    --coral: #e3906d;
+    --line: #2b3f3f;
+    --line-strong: #3c5352;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #101c1d;
+      --card: #16292b;
+      --ink: #eef1ec;
+      --ink-soft: #a9bab6;
+      --teal: #5bc7bd;
+      --teal-soft: #5bc7bd1a;
+      --coral: #e3906d;
+      --line: #2b3f3f;
+      --line-strong: #3c5352;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Segoe UI", sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  /* ---------- Header ---------- */
+  header.trip {
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-family: "Iowan Old Style", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: clamp(26px, 7vw, 32px);
+    font-weight: 600;
+    margin: 0 0 8px;
+    text-wrap: balance;
+    letter-spacing: 0.01em;
+  }
+  .trip-dates {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Route strip ---------- */
+  .route {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 18px 18px;
+    margin-bottom: 32px;
+  }
+  .route-title {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+  }
+  .route-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .route-node {
+    flex: 0 0 auto;
+    width: 84px;
+    text-align: center;
+  }
+  .route-node .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin: 0 auto 10px;
+    border: 2px solid var(--card);
+    outline: 1px solid var(--line-strong);
+  }
+  .route-node.stop .dot {
+    background: var(--coral);
+    width: 14px;
+    height: 14px;
+  }
+  .route-node .label {
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .route-node .sub {
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .route-seg {
+    flex: 1 1 auto;
+    padding-top: 4px;
+    position: relative;
+  }
+  .route-seg .line {
+    height: 2px;
+    background: repeating-linear-gradient(to right, var(--line-strong) 0 6px, transparent 6px 11px);
+    margin-top: 1px;
+  }
+  .route-seg .meta {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .route-seg .meta svg { flex: none; }
+  .route-note {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin: 16px 0 0;
+    border-top: 1px dashed var(--line);
+    padding-top: 12px;
+  }
+
+  /* ---------- Day sections ---------- */
+  .days {
+    display: flex;
+    flex-direction: column;
+  }
+  .day {
+    padding: 22px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .day:first-child { padding-top: 0; }
+  .day:last-child { border-bottom: none; }
+
+  .day-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .day-date {
+    font-family: "Iowan Old Style", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 20px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .day-dow {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .day-hotel-tag {
+    margin-left: auto;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 100px;
+    background: var(--teal-soft);
+    color: var(--teal);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .day-body {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .day-row {
+    display: flex;
+    gap: 10px;
+    font-size: 14.5px;
+    align-items: flex-start;
+  }
+  .day-row .icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    color: var(--teal);
+  }
+  .day-row .icon.coral { color: var(--coral); }
+  .day-row p { margin: 0; }
+  .day-row .tight { color: var(--ink-soft); }
+
+  /* ---------- Hotel cards ---------- */
+  .hotels {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+  .hotel-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .hotel-scene {
+    height: 74px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hotel-scene.manza {
+    background:
+      radial-gradient(120% 140% at 15% 0%, #ffffff22, transparent 60%),
+      linear-gradient(180deg, #12747a 0%, #0c5b60 55%, #0a4e52 100%);
+  }
+  .hotel-scene.mercure {
+    background:
+      radial-gradient(120% 140% at 85% 0%, #ffffff22, transparent 60%),
+      linear-gradient(180deg, #c9825f 0%, #c96a49 55%, #a8563a 100%);
+  }
+  .hotel-scene svg { position: absolute; bottom: -2px; left: 0; width: 100%; height: auto; }
+  .hotel-body { padding: 16px 18px 18px; }
+  .hotel-name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+  .hotel-name {
+    font-family: "Iowan Old Style", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .hotel-nights {
+    font-size: 11px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .hotel-loc {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .hotel-facts {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .hotel-facts li {
+    font-size: 13.5px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .hotel-facts li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--line-strong);
+  }
+  .hotel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+  .hotel-card.mercure .hotel-link { color: var(--coral); }
+  .hotel-link:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+  footer.foot {
+    margin-top: 34px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
+  @media (max-width: 380px) {
+    .route-node { width: 70px; }
+  }
+
+  @media print {
+    :root { --paper: #ffffff; --card: #faf8ee; }
+    body { background: #fff; }
+    .page { max-width: 100%; padding: 0; }
+    .route, .hotel-card { break-inside: avoid; }
+    .day { break-inside: avoid; }
+    @page { margin: 14mm 12mm; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="trip">
+    <p class="eyebrow">Family Trip · Okinawa</p>
+    <h1>沖縄旅行 宿泊プラン</h1>
+    <p class="trip-dates">2026年9月24日(木) 〜 27日(日)・3泊4日</p>
+  </header>
+
+  <div class="route">
+    <p class="route-title">移動のイメージ</p>
+    <div class="route-track">
+      <div class="route-node">
+        <span class="dot"></span>
+        <div class="label">那覇空港</div>
+        <div class="sub">レンタカー受取</div>
+      </div>
+      <div class="route-seg">
+        <div class="line"></div>
+        <div class="meta">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          車 約55分
+        </div>
+      </div>
+      <div class="route-node stop">
+        <span class="dot"></span>
+        <div class="label">万座</div>
+        <div class="sub">2泊</div>
+      </div>
+      <div class="route-seg">
+        <div class="line"></div>
+        <div class="meta">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          車 約30分
+        </div>
+      </div>
+      <div class="route-node stop">
+        <span class="dot"></span>
+        <div class="label">メルキュール</div>
+        <div class="sub">1泊</div>
+      </div>
+      <div class="route-seg">
+        <div class="line"></div>
+        <div class="meta">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          車 約70分
+        </div>
+      </div>
+      <div class="route-node">
+        <span class="dot"></span>
+        <div class="label">那覇空港</div>
+        <div class="sub">帰路</div>
+      </div>
+    </div>
+    <p class="route-note">万座↔メルキュールは恩納村と読谷村、隣り合ったエリアなので短時間で移動できる想定。所要時間はいずれも目安。</p>
+  </div>
+
+  <div class="days">
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-date">9/24</span>
+        <span class="day-dow">木曜・1日目</span>
+        <span class="day-hotel-tag">万座 到着</span>
+      </div>
+      <div class="day-body">
+        <div class="day-row">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20" stroke-linecap="round"/><path d="M5 5l14 14M19 5L5 19" stroke-linecap="round" opacity="0"/></svg>
+          <p>那覇空港着 → レンタカーで万座へ(約55分)</p>
+        </div>
+        <div class="day-row">
+          <svg class="icon coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10c2-2 4-2 6 0s4 2 6 0 4-2 6 0M4 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke-linecap="round"/></svg>
+          <p>チェックイン後、夜は<b>ホテルの外で沖縄料理</b>を食べに行く想定</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-date">9/25</span>
+        <span class="day-dow">金曜・2日目</span>
+        <span class="day-hotel-tag">万座 滞在</span>
+      </div>
+      <div class="day-body">
+        <div class="day-row">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M6 13c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0" stroke-linecap="round"/></svg>
+          <p>移動なし。<b>万座のプール・ビーチでしっかり遊ぶ日</b></p>
+        </div>
+        <div class="day-row">
+          <p class="tight" style="padding-left:28px;">行けそうなら日中に美ら海水族館へ(片道約60分)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-date">9/26</span>
+        <span class="day-dow">土曜・3日目</span>
+        <span class="day-hotel-tag">メルキュールへ移動</span>
+      </div>
+      <div class="day-body">
+        <div class="day-row">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>万座チェックアウト → メルキュールへ(約30分)</p>
+        </div>
+        <div class="day-row">
+          <svg class="icon coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10c2-2 4-2 6 0s4 2 6 0 4-2 6 0M4 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0" stroke-linecap="round"/></svg>
+          <p>道中か到着後に<b>軽めの食事</b>で済ませるくらいのノリでOK</p>
+        </div>
+        <div class="day-row">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M6 13c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0" stroke-linecap="round"/></svg>
+          <p>チェックイン後はプールでゆったり</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-head">
+        <span class="day-date">9/27</span>
+        <span class="day-dow">日曜・4日目</span>
+        <span class="day-hotel-tag">帰路</span>
+      </div>
+      <div class="day-body">
+        <div class="day-row">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M6 13c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0" stroke-linecap="round"/></svg>
+          <p>朝はメルキュールでゆっくり過ごす</p>
+        </div>
+        <div class="day-row">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h13l4-4M20 8l-4 4 4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>那覇空港へ(約70分) → 帰路</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hotels">
+    <p class="section-label">宿泊ホテル</p>
+
+    <div class="hotel-card manza">
+      <div class="hotel-scene manza">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0 22c30 0 30 10 60 10s30-10 60-10 30 10 60 10 30-10 60-10 30 10 60 10 30-10 60-10 30 10 40 10V40H0z" fill="#ffffff1f"/><path d="M0 30c30 0 30 8 60 8s30-8 60-8 30 8 60 8 30-8 60-8 30 8 60 8 30-8 60-8 30 8 40 8V40H0z" fill="#ffffff2e"/></svg>
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-name-row">
+          <span class="hotel-name">万座</span>
+          <span class="hotel-nights">2泊・9/24-26</span>
+        </div>
+        <p class="hotel-loc">ANAインターコンチネンタル万座ビーチリゾート by IHG ／ 恩納村</p>
+        <ul class="hotel-facts">
+          <li>全室オーシャンビュー、目の前にタイガービーチ</li>
+          <li>宿泊者無料のプールエリア「サンセットガーデン」— 波プール・キッズスライダー・バブルヒル</li>
+        </ul>
+        <a class="hotel-link" href="https://www.anaintercontinental-manza.jp/" target="_blank" rel="noopener">
+          部屋・施設を見る
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hotel-card mercure">
+      <div class="hotel-scene mercure">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0 22c30 0 30 10 60 10s30-10 60-10 30 10 60 10 30-10 60-10 30 10 60 10 30-10 60-10 30 10 40 10V40H0z" fill="#ffffff1f"/><path d="M0 30c30 0 30 8 60 8s30-8 60-8 30 8 60 8 30-8 60-8 30 8 60 8 30-8 60-8 30 8 40 8V40H0z" fill="#ffffff2e"/></svg>
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-name-row">
+          <span class="hotel-name">グランドメルキュール</span>
+          <span class="hotel-nights">1泊・9/26-27</span>
+        </div>
+        <p class="hotel-loc">グランドメルキュール沖縄残波岬リゾート ／ 読谷村・残波岬</p>
+        <ul class="hotel-facts">
+          <li>オールインクルーシブ(夕食・朝食ビュッフェ込み)</li>
+          <li>県内最大級のオールデイプール — キッズプール・ウォータースライダー・大人専用プール</li>
+        </ul>
+        <a class="hotel-link" href="https://grand-mercure-okinawacapezanpa-resort.jp/" target="_blank" rel="noopener">
+          部屋・施設を見る
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    移動時間は目安。実際の道路状況・出発時刻で前後します。
+  </footer>
+
+</div>
