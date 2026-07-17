@@ -561,6 +561,104 @@
   }
   .food-link:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 
+  /* ---------- Guide section ---------- */
+  .guide-section { margin-top: 40px; }
+  .guide-intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+  .guide-alert {
+    background: var(--card);
+    border: 1px solid var(--coral);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+  }
+  .guide-alert-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--coral);
+    margin: 0 0 8px;
+  }
+  .guide-alert ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .guide-group { margin-bottom: 26px; }
+  .guide-group-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+  .guide-group-sub {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .guide-table-wrap { overflow-x: auto; }
+  .guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .guide-table th {
+    text-align: left;
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-weight: 600;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  .guide-table td {
+    padding: 8px 10px;
+    border-bottom: 1px dashed var(--line);
+    vertical-align: top;
+  }
+  .guide-table td:last-child { min-width: 190px; }
+  .guide-table tr:last-child td { border-bottom: none; }
+  .guide-table .nm { font-weight: 600; white-space: nowrap; }
+  .guide-table .tm { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 100px;
+    padding: 1px 8px;
+    white-space: nowrap;
+  }
+  .tag.teiban { background: var(--teal-soft); color: var(--teal); }
+  .tag.anaba { background: #c96a4914; color: var(--coral); }
+  .guide-picks {
+    background: var(--card);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .guide-picks-title {
+    font-family: "Iowan Old Style", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  .guide-picks ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
   footer.foot {
     margin-top: 34px;
     font-size: 12px;
@@ -1026,6 +1124,118 @@
           </div>
         </li>
       </ul>
+    </div>
+  </div>
+
+  <div class="guide-section">
+    <p class="section-label">観光・グルメガイド</p>
+    <p class="guide-intro">車2時間圏を「ベタ定番」と「知る人ぞ知る」の2軸で調査した厳選版。時間は万座からの車の目安。</p>
+
+    <div class="guide-alert">
+      <p class="guide-alert-title">予約・日程の要注意ポイント</p>
+      <ol>
+        <li><b>オリオンビール工場見学(名護)は日・月休館</b> → 行けるのは9/24(木)・25(金)のみ。完全予約制で30日前(8/25頃)から予約開始</li>
+        <li><b>首里の泡盛蔵は日曜休み</b> → 最終日9/27(日)の蔵見学は糸満の「まさひろ酒造」(日曜営業・空港から15分)が唯一解</li>
+        <li><b>ちぬまん万座邸は2026年2〜6月に一時休業していた</b>(現在は再開) → 予約前に電話確認を</li>
+        <li><b>首里城正殿の内部公開は11/23から</b> → 旅行時は復元工事の見学デッキ期間</li>
+        <li>9月末は台風シーズン → 雨の日の保険: むら咲むら(屋内体験)・道の駅かでな・DMMかりゆし水族館・アメリカンビレッジ</li>
+      </ol>
+    </div>
+
+    <div class="guide-group">
+      <p class="guide-group-title">観光 — 北部(美ら海方面の日)</p>
+      <p class="guide-group-sub">モデル: 万座発 → 道の駅許田 → 美ら海(昼は館内「イノー」) → 備瀬フクギ並木 → 古宇利島(15時以降が空く) → 万座へ</p>
+      <div class="guide-table-wrap"><table class="guide-table">
+        <tr><th>スポット</th><th>車</th><th>分類</th><th>メモ</th></tr>
+        <tr><td class="nm">古宇利島・古宇利大橋</td><td class="tm">60分</td><td><span class="tag teiban">定番</span></td><td>無料の絶景橋で行ける離島。朝9-11時は混むので15時以降が狙い目</td></tr>
+        <tr><td class="nm">備瀬のフクギ並木</td><td class="tm">美ら海すぐ</td><td><span class="tag teiban">定番</span></td><td>樹齢100年の並木集落。水族館とセットで入口だけ散歩</td></tr>
+        <tr><td class="nm">今帰仁城跡</td><td class="tm">45分</td><td><span class="tag teiban">定番</span></td><td>世界遺産。石畳の坂なのでおばあちゃんは入口の眺望まで</td></tr>
+        <tr><td class="nm">瀬底島</td><td class="tm">60分</td><td><span class="tag teiban">定番</span></td><td>本島屈指の透明度。シャワー等設備完備</td></tr>
+        <tr><td class="nm">アスムイハイクス(旧大石林山)</td><td class="tm">75分</td><td><span class="tag anaba">穴場</span></td><td>やんばるの聖地。バリアフリーコースがありベビーカー・おばあちゃんもOK</td></tr>
+        <tr><td class="nm">嵐山展望台</td><td class="tm">40分</td><td><span class="tag anaba">穴場</span></td><td>羽地内海を一望。観光客ほぼゼロの無料展望台</td></tr>
+      </table></div>
+    </div>
+
+    <div class="guide-group">
+      <p class="guide-group-title">観光 — 中部(宿の足元)</p>
+      <div class="guide-table-wrap"><table class="guide-table">
+        <tr><th>スポット</th><th>車</th><th>分類</th><th>メモ</th></tr>
+        <tr><td class="nm">万座毛</td><td class="tm">5分</td><td><span class="tag teiban">定番</span></td><td>象の鼻の断崖。ホテルの目の前、30分で行ける。観覧料100円</td></tr>
+        <tr><td class="nm">残波岬</td><td class="tm">宿から徒歩圏</td><td><span class="tag teiban">定番</span></td><td>白亜の灯台と夕日。メルキュール泊の夕方散歩に(灯台は12-13時昼休み)</td></tr>
+        <tr><td class="nm">海中道路</td><td class="tm">35分</td><td><span class="tag teiban">定番</span></td><td>海の上を走る5km。車移動自体が遊びなので11人向き</td></tr>
+        <tr><td class="nm">アメリカンビレッジ</td><td class="tm">40分</td><td><span class="tag teiban">定番</span></td><td>観覧車・海沿い散歩。夜メシとセットで</td></tr>
+        <tr><td class="nm">沖縄こどもの国</td><td class="tm">45分</td><td><span class="tag teiban">定番</span></td><td>動物園150種。15歳以下無料・大人1,000円</td></tr>
+        <tr><td class="nm">果報バンタ+ぬちまーす</td><td class="tm">50分</td><td><span class="tag anaba">穴場</span></td><td>「幸せ岬」の絶景+製塩工場の無料見学。歩行短くおばあちゃん◎</td></tr>
+        <tr><td class="nm">ビオスの丘</td><td class="tm">35分</td><td><span class="tag anaba">穴場</span></td><td>湖上遊覧船・水牛車。座って楽しめるので70代と2歳が一緒に乗れる</td></tr>
+        <tr><td class="nm">やちむんの里</td><td class="tm">30分</td><td><span class="tag anaba">穴場</span></td><td>19工房の陶芸集落。大人の器好き向け</td></tr>
+        <tr><td class="nm">むら咲むら</td><td class="tm">25分</td><td><span class="tag anaba">穴場</span></td><td>シーサー絵付け等101体験。雨の日の保険として最強</td></tr>
+        <tr><td class="nm">道の駅かでな</td><td class="tm">28分</td><td><span class="tag anaba">穴場</span></td><td>嘉手納基地を一望、戦闘機の離着陸。無料・雨OK</td></tr>
+      </table></div>
+    </div>
+
+    <div class="guide-group">
+      <p class="guide-group-title">観光 — 南部(初日・最終日の動線上)</p>
+      <div class="guide-table-wrap"><table class="guide-table">
+        <tr><th>スポット</th><th>空港から</th><th>分類</th><th>メモ</th></tr>
+        <tr><td class="nm">瀬長島ウミカジテラス</td><td class="tm">15分</td><td><span class="tag teiban">定番</span></td><td>飛行機の離着陸×海。最終日の時間調整に</td></tr>
+        <tr><td class="nm">DMMかりゆし水族館</td><td class="tm">15分</td><td><span class="tag teiban">定番</span></td><td>美ら海とは別物(屋内型・デジタル演出)。雨でも猛暑でも快適</td></tr>
+        <tr><td class="nm">牧志公設市場・国際通り</td><td class="tm">10分</td><td><span class="tag teiban">定番</span></td><td>1階で魚を買い2階食堂で調理してもらう「持ち上げ」体験</td></tr>
+        <tr><td class="nm">斎場御嶽</td><td class="tm">50分</td><td><span class="tag teiban">定番</span></td><td>世界遺産の聖地。未舗装坂道でベビーカー不可・幼児抱っこ前提</td></tr>
+        <tr><td class="nm">ガンガラーの谷</td><td class="tm">30分</td><td><span class="tag anaba">穴場</span></td><td>ガジュマルの森をガイドと80分探検。4-5歳から・要予約</td></tr>
+        <tr><td class="nm">旧海軍司令部壕</td><td class="tm">18分</td><td><span class="tag anaba">穴場</span></td><td>105段の階段の先の戦跡。中学生の平和学習に強烈に効く</td></tr>
+      </table></div>
+    </div>
+
+    <div class="guide-group">
+      <p class="guide-group-title">メシ — 沖縄そば・ソーキそば</p>
+      <div class="guide-table-wrap"><table class="guide-table">
+        <tr><th>店</th><th>場所</th><th>分類</th><th>メモ</th></tr>
+        <tr><td class="nm">なかむらそば</td><td class="tm">万座から5分</td><td><span class="tag teiban">定番</span></td><td>アーサそばの超有名店。バリアフリー・座敷・駐車場38台で11人向き。木曜休</td></tr>
+        <tr><td class="nm">きしもと食堂</td><td class="tm">本部町</td><td><span class="tag teiban">定番</span></td><td>明治38年創業・木灰麺。行列必至で11人一括は無理筋→開店前到着か八重岳店へ。水曜休</td></tr>
+        <tr><td class="nm">番所亭</td><td class="tm">読谷</td><td><span class="tag anaba">穴場</span></td><td>ウコン入り黄色麺。家族・団体対応を公式明記。水曜休</td></tr>
+        <tr><td class="nm">大城そば家</td><td class="tm">名護</td><td><span class="tag teiban">定番</span></td><td>通し営業・席多めで大所帯が入りやすい。月曜休</td></tr>
+        <tr><td class="nm">南部そば</td><td class="tm">糸満</td><td><span class="tag anaba">穴場</span></td><td>てびち名物。座敷広め・駐車場26台。日曜休</td></tr>
+      </table></div>
+    </div>
+
+    <div class="guide-group">
+      <p class="guide-group-title">メシ — 海鮮・名物</p>
+      <div class="guide-table-wrap"><table class="guide-table">
+        <tr><th>店</th><th>場所</th><th>分類</th><th>メモ</th></tr>
+        <tr><td class="nm">海人食堂(都屋漁港)</td><td class="tm">残波岬から5分</td><td><span class="tag anaba">穴場</span></td><td>漁協直営。イカスミ汁・海人丼・1個90円の天ぷら。約120席</td></tr>
+        <tr><td class="nm">海鮮ばってん</td><td class="tm">北谷</td><td><span class="tag teiban">定番</span></td><td>生け簀の魚を刺身・寿司で。個室・団体席あり=11人OK明記。月曜休</td></tr>
+        <tr><td class="nm">きじむなぁ恩納村店</td><td class="tm">万座から12分</td><td><span class="tag anaba">穴場</span></td><td>オムタコ発祥店。座敷あり・大所帯対応で子連れに最適</td></tr>
+        <tr><td class="nm">キングタコス(キンタコ)</td><td class="tm">各所</td><td><span class="tag teiban">定番</span></td><td>タコライス発祥チェーン。ほぼ全店テイクアウト専門→ビーチで食べる用</td></tr>
+        <tr><td class="nm">ステーキハウス88 恩納店</td><td class="tm">万座から8分</td><td><span class="tag anaba">穴場</span></td><td>「飲んだ後のシメステーキ」文化を宿の近くで。お子様メニュー完備</td></tr>
+        <tr><td class="nm">新垣ぜんざい屋</td><td class="tm">本部町</td><td><span class="tag anaba">穴場</span></td><td>創業70年、氷ぜんざい一筋。そば街道の〆に。月曜休</td></tr>
+      </table></div>
+    </div>
+
+    <div class="guide-group">
+      <p class="guide-group-title">大人の酒 — 蔵見学・ライブ居酒屋</p>
+      <div class="guide-table-wrap"><table class="guide-table">
+        <tr><th>場所</th><th>エリア</th><th>分類</th><th>メモ</th></tr>
+        <tr><td class="nm">恩納酒造所「萬座」</td><td class="tm">万座毛から1分</td><td><span class="tag anaba">穴場</span></td><td>恩納村唯一の蔵。泊まってる地名を冠した泡盛は土産話に最強。要事前連絡・日祝休</td></tr>
+        <tr><td class="nm">比嘉酒造「残波」</td><td class="tm">読谷</td><td><span class="tag teiban">定番</span></td><td>土産泡盛の王様。見学は3日前まで予約・日曜休</td></tr>
+        <tr><td class="nm">咲元酒造(琉球村内)</td><td class="tm">万座から18分</td><td><span class="tag anaba">穴場</span></td><td>テーマパーク内の蔵。大人は泡盛、子はシークヮーサーで乾杯体験、全員で楽しめる</td></tr>
+        <tr><td class="nm">まさひろ酒造</td><td class="tm">糸満・空港15分</td><td><span class="tag teiban">定番</span></td><td>日曜営業・無料試飲・琉装撮影。最終日(日曜)の〆に唯一の蔵</td></tr>
+        <tr><td class="nm">オリオンハッピーパーク</td><td class="tm">名護</td><td><span class="tag teiban">定番</span></td><td>できたて試飲付き工場見学。日月休・完全予約制(30日前から)</td></tr>
+        <tr><td class="nm">CHATAN HARBOR BREWERY</td><td class="tm">北谷</td><td><span class="tag anaba">穴場</span></td><td>醸造タンクを見ながらクラフトビール。17時〜・海沿い</td></tr>
+        <tr><td class="nm">ぱいかじ恩納本店</td><td class="tm">万座から8分</td><td><span class="tag teiban">定番</span></td><td>毎晩三線ライブ。ベビーチェア・おむつ台・ホテル無料送迎あり</td></tr>
+        <tr><td class="nm">かなさんや〜</td><td class="tm">北谷</td><td><span class="tag teiban">定番</span></td><td>三線ライブ(火水金土)×沖縄料理。テーブル連結12名まで。月曜休</td></tr>
+      </table></div>
+      <p class="guide-group-sub" style="margin-top:8px;">泡盛の頼み方: 一般酒は水割り(泡盛3〜5:水5)が沖縄流。古酒だけロックやストレートで。</p>
+    </div>
+
+    <div class="guide-picks">
+      <p class="guide-picks-title">この11人ならこの5つ</p>
+      <ol>
+        <li><b>なかむらそば</b> — 万座から5分・バリアフリー・座敷。昼メシの第一手</li>
+        <li><b>きじむなぁ恩納村店</b> — オムタコ発祥・座敷あり。子ども圧勝メニュー</li>
+        <li><b>咲元酒造×琉球村</b> — 大人は泡盛・子はエイサーとシーサー作り。全員が同じ場所で満足</li>
+        <li><b>ぱいかじ恩納本店</b> — 民謡ライブ×無料送迎。おばあちゃん孝行と大人の酒を一晩で</li>
+        <li><b>まさひろ酒造</b> — 最終日(日曜)の帰路、空港15分で試飲と土産</li>
+      </ol>
     </div>
   </div>
 
